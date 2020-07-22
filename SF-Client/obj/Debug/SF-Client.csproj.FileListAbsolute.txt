@@ -1,0 +1,11 @@
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF-Client.csprojAssemblyReference.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF_Client.Main.resources
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF_Client.Properties.Resources.resources
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF-Client.csproj.GenerateResource.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF-Client.csproj.CoreCompileInputs.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF-Client.exe
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF-Client.pdb
+C:\Users\nico\source\repos\SF-Client\SF-Client\bin\Debug\SF-Client.exe.config
+C:\Users\nico\source\repos\SF-Client\SF-Client\bin\Debug\SF-Client.exe
+C:\Users\nico\source\repos\SF-Client\SF-Client\bin\Debug\SF-Client.pdb
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Debug\SF-Client.csproj.Fody.CopyLocal.cache
