@@ -31,19 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.axShockwaveFlash1 = new AxShockwaveFlashObjects.AxShockwaveFlash();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.language = new MetroFramework.Controls.MetroComboBox();
+            this.ClearCache = new MetroFramework.Controls.MetroButton();
             this.Login = new MetroFramework.Controls.MetroButton();
             this.userNameTextbox = new MetroFramework.Controls.MetroTextBox();
             this.userPassTextbox = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.Discord = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).BeginInit();
             this.metroTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +56,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(14, 70);
             this.metroTabControl1.Multiline = true;
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.ShowToolTips = true;
             this.metroTabControl1.Size = new System.Drawing.Size(996, 684);
             this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -67,13 +64,14 @@
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTabControl1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabControl1.UseSelectable = true;
             this.metroTabControl1.UseStyleColors = true;
             // 
             // metroTabPage1
             // 
-            this.metroTabPage1.Controls.Add(this.axShockwaveFlash1);
             this.metroTabPage1.Controls.Add(this.webBrowser1);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
+            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 0;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 39);
             this.metroTabPage1.Name = "metroTabPage1";
@@ -84,22 +82,12 @@
             this.metroTabPage1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTabPage1.UseVisualStyleBackColor = true;
             this.metroTabPage1.VerticalScrollbarBarColor = true;
+            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 0;
-            // 
-            // axShockwaveFlash1
-            // 
-            this.axShockwaveFlash1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axShockwaveFlash1.Enabled = true;
-            this.axShockwaveFlash1.Location = new System.Drawing.Point(0, 0);
-            this.axShockwaveFlash1.Name = "axShockwaveFlash1";
-            this.axShockwaveFlash1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
-            this.axShockwaveFlash1.Size = new System.Drawing.Size(988, 641);
-            this.axShockwaveFlash1.TabIndex = 2;
             // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
@@ -112,11 +100,12 @@
             // 
             this.metroTabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.metroTabPage2.Controls.Add(this.language);
+            this.metroTabPage2.Controls.Add(this.ClearCache);
             this.metroTabPage2.Controls.Add(this.Login);
             this.metroTabPage2.Controls.Add(this.userNameTextbox);
             this.metroTabPage2.Controls.Add(this.userPassTextbox);
-            this.metroTabPage2.CustomBackground = true;
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
+            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 0;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 39);
             this.metroTabPage2.Name = "metroTabPage2";
@@ -126,13 +115,14 @@
             this.metroTabPage2.Text = "Login   ";
             this.metroTabPage2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTabPage2.VerticalScrollbarBarColor = true;
+            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 0;
             // 
             // language
             // 
             this.language.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.language.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.language.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.language.FontSize = MetroFramework.MetroComboBoxSize.Tall;
             this.language.ForeColor = System.Drawing.Color.Red;
             this.language.FormattingEnabled = true;
             this.language.ItemHeight = 29;
@@ -168,11 +158,25 @@
             this.language.TabIndex = 14;
             this.language.TabStop = false;
             this.language.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.language.UseSelectable = true;
+            // 
+            // ClearCache
+            // 
+            this.ClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ClearCache.Location = new System.Drawing.Point(3, 601);
+            this.ClearCache.MaximumSize = new System.Drawing.Size(350, 50);
+            this.ClearCache.Name = "ClearCache";
+            this.ClearCache.Size = new System.Drawing.Size(150, 37);
+            this.ClearCache.Style = MetroFramework.MetroColorStyle.Red;
+            this.ClearCache.TabIndex = 10;
+            this.ClearCache.Text = "Clear Cache";
+            this.ClearCache.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ClearCache.UseSelectable = true;
+            this.ClearCache.Click += new System.EventHandler(this.ClearCache_Click);
             // 
             // Login
             // 
             this.Login.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Login.Highlight = true;
             this.Login.Location = new System.Drawing.Point(344, 318);
             this.Login.MaximumSize = new System.Drawing.Size(350, 50);
             this.Login.Name = "Login";
@@ -181,59 +185,81 @@
             this.Login.TabIndex = 10;
             this.Login.Text = "Login";
             this.Login.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Login.UseSelectable = true;
             this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // userNameTextbox
             // 
             this.userNameTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userNameTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            // 
+            // 
+            // 
+            this.userNameTextbox.CustomButton.Image = null;
+            this.userNameTextbox.CustomButton.Location = new System.Drawing.Point(268, 1);
+            this.userNameTextbox.CustomButton.Name = "";
+            this.userNameTextbox.CustomButton.Size = new System.Drawing.Size(31, 31);
+            this.userNameTextbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.userNameTextbox.CustomButton.TabIndex = 1;
+            this.userNameTextbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.userNameTextbox.CustomButton.UseSelectable = true;
+            this.userNameTextbox.CustomButton.Visible = false;
             this.userNameTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.userNameTextbox.Lines = new string[0];
             this.userNameTextbox.Location = new System.Drawing.Point(344, 240);
             this.userNameTextbox.MaximumSize = new System.Drawing.Size(350, 50);
+            this.userNameTextbox.MaxLength = 32767;
             this.userNameTextbox.Name = "userNameTextbox";
+            this.userNameTextbox.PasswordChar = '\0';
+            this.userNameTextbox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.userNameTextbox.SelectedText = "";
+            this.userNameTextbox.SelectionLength = 0;
+            this.userNameTextbox.SelectionStart = 0;
+            this.userNameTextbox.ShortcutsEnabled = true;
             this.userNameTextbox.Size = new System.Drawing.Size(300, 33);
             this.userNameTextbox.Style = MetroFramework.MetroColorStyle.Red;
             this.userNameTextbox.TabIndex = 8;
             this.userNameTextbox.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.userNameTextbox.UseStyleColors = true;
+            this.userNameTextbox.UseSelectable = true;
+            this.userNameTextbox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.userNameTextbox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // userPassTextbox
             // 
             this.userPassTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userPassTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            // 
+            // 
+            // 
+            this.userPassTextbox.CustomButton.Image = null;
+            this.userPassTextbox.CustomButton.Location = new System.Drawing.Point(268, 1);
+            this.userPassTextbox.CustomButton.Name = "";
+            this.userPassTextbox.CustomButton.Size = new System.Drawing.Size(31, 31);
+            this.userPassTextbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.userPassTextbox.CustomButton.TabIndex = 1;
+            this.userPassTextbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.userPassTextbox.CustomButton.UseSelectable = true;
+            this.userPassTextbox.CustomButton.Visible = false;
             this.userPassTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.userPassTextbox.Lines = new string[0];
             this.userPassTextbox.Location = new System.Drawing.Point(344, 279);
             this.userPassTextbox.MaximumSize = new System.Drawing.Size(350, 50);
+            this.userPassTextbox.MaxLength = 32767;
             this.userPassTextbox.Name = "userPassTextbox";
             this.userPassTextbox.PasswordChar = '●';
+            this.userPassTextbox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.userPassTextbox.SelectedText = "";
+            this.userPassTextbox.SelectionLength = 0;
+            this.userPassTextbox.SelectionStart = 0;
+            this.userPassTextbox.ShortcutsEnabled = true;
             this.userPassTextbox.Size = new System.Drawing.Size(300, 33);
             this.userPassTextbox.Style = MetroFramework.MetroColorStyle.Red;
             this.userPassTextbox.TabIndex = 9;
             this.userPassTextbox.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.userPassTextbox.UseStyleColors = true;
+            this.userPassTextbox.UseSelectable = true;
             this.userPassTextbox.UseSystemPasswordChar = true;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(14, 12);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(96, 52);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton1.TabIndex = 1;
-            this.metroButton1.Text = "Browser";
-            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Location = new System.Drawing.Point(116, 12);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(96, 52);
-            this.metroButton2.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton2.TabIndex = 1;
-            this.metroButton2.Text = "Game";
-            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            this.userPassTextbox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.userPassTextbox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // Discord
             // 
@@ -242,7 +268,7 @@
             this.Discord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.Discord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Discord.Image = global::SF_Client.Properties.Resources.discord;
-            this.Discord.Location = new System.Drawing.Point(218, 12);
+            this.Discord.Location = new System.Drawing.Point(14, 12);
             this.Discord.Name = "Discord";
             this.Discord.Size = new System.Drawing.Size(96, 52);
             this.Discord.TabIndex = 2;
@@ -254,26 +280,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.ControlBox = false;
             this.Controls.Add(this.Discord);
-            this.Controls.Add(this.metroButton2);
-            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Padding = new System.Windows.Forms.Padding(14, 70, 14, 14);
-            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "SF-Client";
-            this.TextAlign = System.Windows.Forms.VisualStyles.HorizontalAlign.Center;
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).EndInit();
             this.metroTabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -284,15 +305,13 @@
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
-        private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton metroButton2;
         private System.Windows.Forms.Button Discord;
-        private AxShockwaveFlashObjects.AxShockwaveFlash axShockwaveFlash1;
         private MetroFramework.Controls.MetroComboBox language;
         private MetroFramework.Controls.MetroButton Login;
         private MetroFramework.Controls.MetroTextBox userNameTextbox;
         private MetroFramework.Controls.MetroTextBox userPassTextbox;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private MetroFramework.Controls.MetroButton ClearCache;
     }
 }
 

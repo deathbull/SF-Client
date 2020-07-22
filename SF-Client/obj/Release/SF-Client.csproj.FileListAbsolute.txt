@@ -1,0 +1,12 @@
+C:\Users\nico\source\repos\SF-Client\SF-Client\bin\Release\SF-Client.exe.config
+C:\Users\nico\source\repos\SF-Client\SF-Client\bin\Release\SF-Client.exe
+C:\Users\nico\source\repos\SF-Client\SF-Client\bin\Release\SF-Client.pdb
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF-Client.csprojAssemblyReference.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF_Client.Main.resources
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF_Client.Properties.Resources.resources
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF-Client.csproj.GenerateResource.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF-Client.csproj.CoreCompileInputs.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF-Client.csproj.Fody.CopyLocal.cache
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF-Client.exe
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF-Client.pdb
+C:\Users\nico\source\repos\SF-Client\SF-Client\obj\Release\SF_Client.FlashPlayer.resources

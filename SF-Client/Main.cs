@@ -1,6 +1,9 @@
 ﻿using MetroFramework.Forms;
 using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SF_Client
@@ -11,30 +14,10 @@ namespace SF_Client
         {
             InitializeComponent();
             language.SelectedIndex = 0;
+            Main.CheckForIllegalCrossThreadCalls = false;
         }
 
-        private void RefreshFlashPlayer()
-        {
-            this.metroTabPage1.Controls.Remove(axShockwaveFlash1);
-            axShockwaveFlash1.Dispose();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.axShockwaveFlash1 = new AxShockwaveFlashObjects.AxShockwaveFlash();
-            this.axShockwaveFlash1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.axShockwaveFlash1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axShockwaveFlash1.Enabled = true;
-            this.axShockwaveFlash1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.axShockwaveFlash1.Location = new System.Drawing.Point(0, 0);
-            this.axShockwaveFlash1.Margin = new System.Windows.Forms.Padding(10);
-            this.axShockwaveFlash1.Name = "axShockwaveFlash1";
-            this.axShockwaveFlash1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
-            this.axShockwaveFlash1.Padding = new System.Windows.Forms.Padding(10);
-            this.axShockwaveFlash1.Size = new System.Drawing.Size(1248, 473);
-            this.axShockwaveFlash1.TabIndex = 2;
-            this.axShockwaveFlash1.TabStop = false;
-            this.axShockwaveFlash1.MakeDirty();
-            this.metroTabPage1.Controls.Add(this.axShockwaveFlash1);
-            axShockwaveFlash1.Refresh();
-        }
+        private string Username { get; set; }
 
         private void Discord_Click(object sender, EventArgs e)
         {
@@ -53,14 +36,16 @@ namespace SF_Client
             }
         }
 
-        private void webBrowser1_DocumentCompleted(object sender, System.Windows.Forms.WebBrowserDocumentCompletedEventArgs e)
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             if (webBrowser1.DocumentText.Contains("<div class=\"bgcdw_errors_flash\">") || webBrowser1.DocumentText.Contains("data-error=\"bgc.error.password_isTooShort\""))
             {
                 MessageBox.Show("Please enter correct username and password", "Attention", MessageBoxButtons.OK);
+                return;
             }
             else if (webBrowser1.DocumentText.Contains("bgcdw_login_form_username"))
             {
+                Username = userNameTextbox.Text;
                 HtmlElement lname = webBrowser1.Document.GetElementById("bgcdw_login_form_username");
                 HtmlElement lpass = webBrowser1.Document.GetElementById("bgcdw_login_form_password");
                 if (!lname.GetAttribute("value").Equals(userNameTextbox.Text))
@@ -81,7 +66,6 @@ namespace SF_Client
                             break;
                         }
                     }
-                    RefreshFlashPlayer();
                 }
                 catch (Exception)
                 {
@@ -95,16 +79,23 @@ namespace SF_Client
             {
                 try
                 {
-                    axShockwaveFlash1.LoadMovie(0, webBrowser1.Document.GetElementById("sffclient").GetAttribute("data"));
+                    string swf = webBrowser1.Document.GetElementById("sffclient").GetAttribute("data");
+                    string var = "";
                     foreach (HtmlElement item in webBrowser1.Document.GetElementsByTagName("param"))
                     {
                         if (item.Name == "FlashVars")
                         {
-                            axShockwaveFlash1.FlashVars = item.GetAttribute("value").Replace(item.GetAttribute("value").Split(new string[] { "isFastReg=1&" }, StringSplitOptions.None)[1].Split(new string[] { "&quality" }, StringSplitOptions.None)[0], "lang=" + language.GetItemText(language.SelectedItem).ToLower());
+                            var = item.GetAttribute("value").Replace(item.GetAttribute("value").Split(new string[] { "isFastReg=1&" }, StringSplitOptions.None)[1].Split(new string[] { "&quality" }, StringSplitOptions.None)[0], "lang=" + language.GetItemText(language.SelectedItem).ToLower());
                             break;
                         }
                     }
-                    axShockwaveFlash1.GotoFrame(0);
+                    FlashPlayer _ = new FlashPlayer()
+                    {
+                        FlashVariables = var,
+                        SwfClient = swf,
+                        Username = this.Username,
+                    };
+                    _.Show();
                     webBrowser1.Navigate(webBrowser1.Url.AbsoluteUri.Replace("?action=internalMap", "?action=internalStart"));
                 }
                 catch (Exception)
@@ -112,16 +103,6 @@ namespace SF_Client
                     webBrowser1.Navigate(webBrowser1.Url);
                 }
             }
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            webBrowser1.BringToFront();
-        }
-
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-            axShockwaveFlash1.BringToFront();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -138,6 +119,16 @@ namespace SF_Client
             language.SelectedIndex = Properties.Settings.Default.Lanuguage;
             userNameTextbox.Text = Properties.Settings.Default.Username;
             userPassTextbox.Text = Properties.Settings.Default.Password;
+        }
+
+        [DllImport("wininet.dll", SetLastError = true)]
+        private static extern bool InternetSetOption(IntPtr hInternet, int dwOption, IntPtr lpBuffer, int lpdwBufferLength);
+
+        private const int INTERNET_OPTION_END_BROWSER_SESSION = 42;
+
+        private void ClearCache_Click(object sender, EventArgs e)
+        {
+            InternetSetOption(IntPtr.Zero, INTERNET_OPTION_END_BROWSER_SESSION, IntPtr.Zero, 0);
         }
     }
 }
