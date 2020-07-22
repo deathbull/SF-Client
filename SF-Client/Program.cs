@@ -15,8 +15,8 @@ namespace SF_Client
             RegistryKey reg = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\", true);
             if (reg == null)
                 reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\");
-            if (reg.GetValue("SF-Client.exe") == null)
-                reg.SetValue("SF-Client.exe", 0x00002af9);
+            if (reg.GetValue("SF-Client.exe") == null || (int)reg.GetValue("SF-Client.exe") != 0x00002ee1)
+                reg.SetValue("SF-Client.exe", 0x00002ee1);
 
             CosturaUtility.Initialize();
             Application.EnableVisualStyles();
