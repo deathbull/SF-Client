@@ -42,6 +42,7 @@
             this.axShockwaveFlash1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
             this.axShockwaveFlash1.Size = new System.Drawing.Size(1002, 727);
             this.axShockwaveFlash1.TabIndex = 3;
+            this.axShockwaveFlash1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.axShockwaveFlash1_PreviewKeyDown);
             // 
             // FlashPlayer
             // 

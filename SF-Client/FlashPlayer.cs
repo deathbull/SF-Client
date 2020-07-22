@@ -70,10 +70,5 @@ namespace SF_Client
                 }
             }
         }
-
-        private void Restart_Click(object sender, EventArgs e)
-        {
-            RestartFlashPlayer();
-        }
     }
 }

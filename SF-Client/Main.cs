@@ -97,6 +97,7 @@ namespace SF_Client
                     };
                     _.Show();
                     webBrowser1.Navigate(webBrowser1.Url.AbsoluteUri.Replace("?action=internalMap", "?action=internalStart"));
+                    this.WindowState = FormWindowState.Minimized;
                 }
                 catch (Exception)
                 {
