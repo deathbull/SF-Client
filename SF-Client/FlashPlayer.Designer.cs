@@ -54,6 +54,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FlashPlayer";
             this.Padding = new System.Windows.Forms.Padding(11, 30, 11, 11);
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
