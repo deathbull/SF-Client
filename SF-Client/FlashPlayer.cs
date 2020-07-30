@@ -1,6 +1,5 @@
 ﻿using MetroFramework.Forms;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SF_Client
@@ -10,6 +9,7 @@ namespace SF_Client
         public FlashPlayer()
         {
             InitializeComponent();
+
         }
 
         public string FlashVariables { get; set; }

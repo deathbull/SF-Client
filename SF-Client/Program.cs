@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -7,7 +6,6 @@ namespace SF_Client
 {
     static class Program
     {
-
         [STAThread]
         static void Main()
         {
@@ -18,10 +16,19 @@ namespace SF_Client
             if (reg.GetValue("SF-Client.exe") == null || (int)reg.GetValue("SF-Client.exe") != 0x00002ee1)
                 reg.SetValue("SF-Client.exe", 0x00002ee1);
 
+            Tools.SetProcessWorkingSize();
+
             CosturaUtility.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            //try
+            //{
+                Application.Run(new Main());
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
     }
 }

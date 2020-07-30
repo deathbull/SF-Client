@@ -1,4 +1,6 @@
-﻿namespace SF_Client
+﻿using System.Drawing;
+
+namespace SF_Client
 {
     partial class Main
     {
@@ -34,20 +36,32 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.language = new MetroFramework.Controls.MetroComboBox();
-            this.ClearCache = new MetroFramework.Controls.MetroButton();
             this.Login = new MetroFramework.Controls.MetroButton();
             this.userNameTextbox = new MetroFramework.Controls.MetroTextBox();
             this.userPassTextbox = new MetroFramework.Controls.MetroTextBox();
+            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.DiscordRPC_Active = new MetroFramework.Controls.MetroCheckBox();
+            this.DiscordRPC_Image_Change = new System.Windows.Forms.Button();
             this.Discord = new System.Windows.Forms.Button();
+            this.DiscordRPC_Image = new System.Windows.Forms.PictureBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
+            this.metroTabPage3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscordRPC_Image)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
+            this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
@@ -56,7 +70,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(14, 70);
             this.metroTabControl1.Multiline = true;
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.ShowToolTips = true;
             this.metroTabControl1.Size = new System.Drawing.Size(996, 684);
             this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -101,7 +115,6 @@
             // 
             this.metroTabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.metroTabPage2.Controls.Add(this.language);
-            this.metroTabPage2.Controls.Add(this.ClearCache);
             this.metroTabPage2.Controls.Add(this.Login);
             this.metroTabPage2.Controls.Add(this.userNameTextbox);
             this.metroTabPage2.Controls.Add(this.userPassTextbox);
@@ -160,20 +173,6 @@
             this.language.TabStop = false;
             this.language.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.language.UseSelectable = true;
-            // 
-            // ClearCache
-            // 
-            this.ClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearCache.Location = new System.Drawing.Point(3, 601);
-            this.ClearCache.MaximumSize = new System.Drawing.Size(350, 50);
-            this.ClearCache.Name = "ClearCache";
-            this.ClearCache.Size = new System.Drawing.Size(150, 37);
-            this.ClearCache.Style = MetroFramework.MetroColorStyle.Red;
-            this.ClearCache.TabIndex = 10;
-            this.ClearCache.Text = "Clear Cache";
-            this.ClearCache.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ClearCache.UseSelectable = true;
-            this.ClearCache.Click += new System.EventHandler(this.ClearCache_Click);
             // 
             // Login
             // 
@@ -262,6 +261,118 @@
             this.userPassTextbox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.userPassTextbox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // metroTabPage3
+            // 
+            this.metroTabPage3.Controls.Add(this.flowLayoutPanel1);
+            this.metroTabPage3.HorizontalScrollbarBarColor = true;
+            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage3.HorizontalScrollbarSize = 0;
+            this.metroTabPage3.Location = new System.Drawing.Point(4, 39);
+            this.metroTabPage3.Name = "metroTabPage3";
+            this.metroTabPage3.Size = new System.Drawing.Size(988, 641);
+            this.metroTabPage3.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroTabPage3.TabIndex = 2;
+            this.metroTabPage3.Text = "Settings   ";
+            this.metroTabPage3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage3.VerticalScrollbarBarColor = true;
+            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage3.VerticalScrollbarSize = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.flowLayoutPanel1.Controls.Add(this.metroPanel1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 641);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.metroPanel2);
+            this.metroPanel1.Controls.Add(this.DiscordRPC_Image);
+            this.metroPanel1.Controls.Add(this.metroLabel1);
+            this.metroPanel1.Controls.Add(this.DiscordRPC_Active);
+            this.metroPanel1.Controls.Add(this.DiscordRPC_Image_Change);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(3, 3);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(350, 300);
+            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroPanel1.TabIndex = 1;
+            this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(0, 45);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(350, 1);
+            this.metroPanel2.TabIndex = 3;
+            this.metroPanel2.UseCustomBackColor = true;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(120, 10);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(110, 25);
+            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "Discord RPC";
+            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // DiscordRPC_Active
+            // 
+            this.DiscordRPC_Active.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DiscordRPC_Active.AutoSize = true;
+            this.DiscordRPC_Active.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.DiscordRPC_Active.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.DiscordRPC_Active.Location = new System.Drawing.Point(135, 71);
+            this.DiscordRPC_Active.Name = "DiscordRPC_Active";
+            this.DiscordRPC_Active.Size = new System.Drawing.Size(76, 25);
+            this.DiscordRPC_Active.Style = MetroFramework.MetroColorStyle.Red;
+            this.DiscordRPC_Active.TabIndex = 0;
+            this.DiscordRPC_Active.Text = "Active";
+            this.DiscordRPC_Active.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.DiscordRPC_Active.UseCustomForeColor = true;
+            this.DiscordRPC_Active.UseSelectable = true;
+            this.DiscordRPC_Active.UseStyleColors = true;
+            this.DiscordRPC_Active.CheckedChanged += new System.EventHandler(this.DiscordRPC_Active_CheckedChanged);
+            // 
+            // DiscordRPC_Image_Change
+            // 
+            this.DiscordRPC_Image_Change.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.DiscordRPC_Image_Change.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DiscordRPC_Image_Change.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.DiscordRPC_Image_Change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DiscordRPC_Image_Change.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DiscordRPC_Image_Change.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DiscordRPC_Image_Change.Location = new System.Drawing.Point(100, 125);
+            this.DiscordRPC_Image_Change.Name = "DiscordRPC_Image_Change";
+            this.DiscordRPC_Image_Change.Size = new System.Drawing.Size(150, 150);
+            this.DiscordRPC_Image_Change.TabIndex = 2;
+            this.DiscordRPC_Image_Change.Text = "Change";
+            this.DiscordRPC_Image_Change.UseVisualStyleBackColor = false;
+            this.DiscordRPC_Image_Change.Click += new System.EventHandler(this.DiscordRPC_Image_Change_Click);
+            this.DiscordRPC_Image_Change.MouseLeave += new System.EventHandler(this.DiscordRPC_Image_Change_MouseLeave);
+            // 
             // Discord
             // 
             this.Discord.AutoEllipsis = true;
@@ -275,6 +386,19 @@
             this.Discord.TabIndex = 2;
             this.Discord.UseVisualStyleBackColor = true;
             this.Discord.Click += new System.EventHandler(this.Discord_Click);
+            // 
+            // DiscordRPC_Image
+            // 
+            this.DiscordRPC_Image.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DiscordRPC_Image.BackColor = System.Drawing.Color.Transparent;
+            this.DiscordRPC_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DiscordRPC_Image.Location = new System.Drawing.Point(100, 125);
+            this.DiscordRPC_Image.Name = "DiscordRPC_Image";
+            this.DiscordRPC_Image.Size = new System.Drawing.Size(150, 150);
+            this.DiscordRPC_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DiscordRPC_Image.TabIndex = 2;
+            this.DiscordRPC_Image.TabStop = false;
+            this.DiscordRPC_Image.MouseEnter += new System.EventHandler(this.DiscordRPC_Image_MouseEnter);
             // 
             // Main
             // 
@@ -298,6 +422,11 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage3.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscordRPC_Image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -313,7 +442,14 @@
         private MetroFramework.Controls.MetroTextBox userNameTextbox;
         private MetroFramework.Controls.MetroTextBox userPassTextbox;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private MetroFramework.Controls.MetroButton ClearCache;
+        private MetroFramework.Controls.MetroTabPage metroTabPage3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private MetroFramework.Controls.MetroCheckBox DiscordRPC_Active;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private System.Windows.Forms.PictureBox DiscordRPC_Image;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.Button DiscordRPC_Image_Change;
     }
 }
 

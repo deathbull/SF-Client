@@ -58,5 +58,29 @@ namespace SF_Client.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DiscordRPC_Active {
+            get {
+                return ((bool)(this["DiscordRPC_Active"]));
+            }
+            set {
+                this["DiscordRPC_Active"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public string DiscordRPC_Image {
+            get {
+                return ((string)(this["DiscordRPC_Image"]));
+            }
+            set {
+                this["DiscordRPC_Image"] = value;
+            }
+        }
     }
 }

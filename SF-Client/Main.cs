@@ -1,10 +1,17 @@
 ﻿using MetroFramework.Forms;
+using DiscordRpcNet;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net;
+using System.IO;
+using SF_Client.DiscordRPC;
+using SF_Client.DiscordRPC.APIDatas;
+using System.Collections.Generic;
 
 namespace SF_Client
 {
@@ -13,11 +20,35 @@ namespace SF_Client
         public Main()
         {
             InitializeComponent();
+            LoadRPCImages();
             language.SelectedIndex = 0;
             Main.CheckForIllegalCrossThreadCalls = false;
         }
 
         private string Username { get; set; }
+
+        private void LoadRPCImages()
+        {
+            using (HttpClient _ = new HttpClient())
+            {
+                _.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage message = _.GetAsync("https://discord.com/api/v6/oauth2/applications/738137354589437972/assets").Result;
+                message.EnsureSuccessStatusCode();
+                string ResponseBody = message.Content.ReadAsStringAsync().Result;
+
+                Root DeserializedData = JsonConvert.DeserializeObject<Root>(ResponseBody.Replace("[", "{ Main : [").Replace("]", "]}"));
+
+                for (int i = 0; i < DeserializedData.Main.Count; i++)
+                {
+                    using (WebClient webClient = new WebClient())
+                    {
+                        byte[] data = webClient.DownloadData($"https://cdn.discordapp.com/app-assets/738137354589437972/{DeserializedData.Main[i].id}.png");
+                        MemoryStream ms = new MemoryStream(data);
+                        Images.ImageList.Add(DeserializedData.Main[i].name, (Bitmap)Image.FromStream(ms));
+                    }
+                }
+            }
+        }
 
         private void Discord_Click(object sender, EventArgs e)
         {
@@ -99,9 +130,9 @@ namespace SF_Client
                     webBrowser1.Navigate(webBrowser1.Url.AbsoluteUri.Replace("?action=internalMap", "?action=internalStart"));
                     this.WindowState = FormWindowState.Minimized;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    webBrowser1.Navigate(webBrowser1.Url);
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -111,25 +142,68 @@ namespace SF_Client
             Properties.Settings.Default.Lanuguage = language.SelectedIndex;
             Properties.Settings.Default.Username = userNameTextbox.Text;
             Properties.Settings.Default.Password = userPassTextbox.Text;
+            Properties.Settings.Default.DiscordRPC_Active = DiscordRPC_Active.Checked;
 
             Properties.Settings.Default.Save();
+
+            DiscordRpc.Shutdown();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
+            
+
             language.SelectedIndex = Properties.Settings.Default.Lanuguage;
             userNameTextbox.Text = Properties.Settings.Default.Username;
             userPassTextbox.Text = Properties.Settings.Default.Password;
+            DiscordRPC_Image.Image = Images.ImageList[Properties.Settings.Default.DiscordRPC_Image];
+            DiscordRPC_Active.Checked = Properties.Settings.Default.DiscordRPC_Active;
+
         }
 
-        [DllImport("wininet.dll", SetLastError = true)]
-        private static extern bool InternetSetOption(IntPtr hInternet, int dwOption, IntPtr lpBuffer, int lpdwBufferLength);
-
-        private const int INTERNET_OPTION_END_BROWSER_SESSION = 42;
-
-        private void ClearCache_Click(object sender, EventArgs e)
+        void UpdatePresence()
         {
-            InternetSetOption(IntPtr.Zero, INTERNET_OPTION_END_BROWSER_SESSION, IntPtr.Zero, 0);
+            if (DiscordRPC_Active.Checked)
+            {
+                DiscordRpc.EventHandlers handlers = new DiscordRpc.EventHandlers();
+                DiscordRpc.RichPresence presence = new DiscordRpc.RichPresence();
+                DiscordRpc.Initialize("738137354589437972", ref handlers, true, null);
+                presence.details = "Client by Deathbull";
+                presence.largeImageKey = Properties.Settings.Default.DiscordRPC_Image;
+                presence.largeImageText = "Seafight";
+                DiscordRpc.UpdatePresence(ref presence);
+            }
+            else
+            {
+                DiscordRpc.Shutdown();
+            }
+        }
+
+        private void DiscordRPC_Image_MouseEnter(object sender, EventArgs e)
+        {
+            DiscordRPC_Image_Change.BringToFront();
+        }
+
+        private void DiscordRPC_Image_Change_MouseLeave(object sender, EventArgs e)
+        {
+            DiscordRPC_Image.BringToFront();
+        }
+
+        private void DiscordRPC_Image_Change_Click(object sender, EventArgs e)
+        {
+            SelectImage _ = new SelectImage();
+            _.ShowDialog();
+            if (_.Selected != null)
+            {
+                Properties.Settings.Default.DiscordRPC_Image = _.Selected;
+                DiscordRPC_Image.Image = Images.ImageList[Properties.Settings.Default.DiscordRPC_Image];
+                UpdatePresence();
+            }
+        }
+
+        private void DiscordRPC_Active_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePresence();
         }
     }
 }
