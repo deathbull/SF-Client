@@ -43,11 +43,12 @@ namespace SF_Client
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.DiscordRPC_Image = new System.Windows.Forms.PictureBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.DiscordRPC_Active = new MetroFramework.Controls.MetroCheckBox();
             this.DiscordRPC_Image_Change = new System.Windows.Forms.Button();
             this.Discord = new System.Windows.Forms.Button();
-            this.DiscordRPC_Image = new System.Windows.Forms.PictureBox();
+            this.DiscordRPC_Description = new MetroFramework.Controls.MetroTextBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -291,6 +292,7 @@ namespace SF_Client
             // metroPanel1
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.DiscordRPC_Description);
             this.metroPanel1.Controls.Add(this.metroPanel2);
             this.metroPanel1.Controls.Add(this.DiscordRPC_Image);
             this.metroPanel1.Controls.Add(this.metroLabel1);
@@ -324,6 +326,19 @@ namespace SF_Client
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // DiscordRPC_Image
+            // 
+            this.DiscordRPC_Image.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DiscordRPC_Image.BackColor = System.Drawing.Color.Transparent;
+            this.DiscordRPC_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DiscordRPC_Image.Location = new System.Drawing.Point(100, 103);
+            this.DiscordRPC_Image.Name = "DiscordRPC_Image";
+            this.DiscordRPC_Image.Size = new System.Drawing.Size(150, 150);
+            this.DiscordRPC_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DiscordRPC_Image.TabIndex = 2;
+            this.DiscordRPC_Image.TabStop = false;
+            this.DiscordRPC_Image.MouseEnter += new System.EventHandler(this.DiscordRPC_Image_MouseEnter);
+            // 
             // metroLabel1
             // 
             this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -344,7 +359,7 @@ namespace SF_Client
             this.DiscordRPC_Active.AutoSize = true;
             this.DiscordRPC_Active.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
             this.DiscordRPC_Active.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.DiscordRPC_Active.Location = new System.Drawing.Point(135, 71);
+            this.DiscordRPC_Active.Location = new System.Drawing.Point(135, 64);
             this.DiscordRPC_Active.Name = "DiscordRPC_Active";
             this.DiscordRPC_Active.Size = new System.Drawing.Size(76, 25);
             this.DiscordRPC_Active.Style = MetroFramework.MetroColorStyle.Red;
@@ -364,7 +379,7 @@ namespace SF_Client
             this.DiscordRPC_Image_Change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DiscordRPC_Image_Change.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DiscordRPC_Image_Change.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.DiscordRPC_Image_Change.Location = new System.Drawing.Point(100, 125);
+            this.DiscordRPC_Image_Change.Location = new System.Drawing.Point(100, 103);
             this.DiscordRPC_Image_Change.Name = "DiscordRPC_Image_Change";
             this.DiscordRPC_Image_Change.Size = new System.Drawing.Size(150, 150);
             this.DiscordRPC_Image_Change.TabIndex = 2;
@@ -387,18 +402,42 @@ namespace SF_Client
             this.Discord.UseVisualStyleBackColor = true;
             this.Discord.Click += new System.EventHandler(this.Discord_Click);
             // 
-            // DiscordRPC_Image
+            // DiscordRPC_Description
             // 
-            this.DiscordRPC_Image.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DiscordRPC_Image.BackColor = System.Drawing.Color.Transparent;
-            this.DiscordRPC_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DiscordRPC_Image.Location = new System.Drawing.Point(100, 125);
-            this.DiscordRPC_Image.Name = "DiscordRPC_Image";
-            this.DiscordRPC_Image.Size = new System.Drawing.Size(150, 150);
-            this.DiscordRPC_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.DiscordRPC_Image.TabIndex = 2;
-            this.DiscordRPC_Image.TabStop = false;
-            this.DiscordRPC_Image.MouseEnter += new System.EventHandler(this.DiscordRPC_Image_MouseEnter);
+            // 
+            // 
+            // 
+            this.DiscordRPC_Description.CustomButton.Image = null;
+            this.DiscordRPC_Description.CustomButton.Location = new System.Drawing.Point(312, 2);
+            this.DiscordRPC_Description.CustomButton.Name = "";
+            this.DiscordRPC_Description.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.DiscordRPC_Description.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.DiscordRPC_Description.CustomButton.TabIndex = 1;
+            this.DiscordRPC_Description.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.DiscordRPC_Description.CustomButton.UseSelectable = true;
+            this.DiscordRPC_Description.CustomButton.Visible = false;
+            this.DiscordRPC_Description.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.DiscordRPC_Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.DiscordRPC_Description.Lines = new string[0];
+            this.DiscordRPC_Description.Location = new System.Drawing.Point(3, 263);
+            this.DiscordRPC_Description.MaxLength = 32767;
+            this.DiscordRPC_Description.Name = "DiscordRPC_Description";
+            this.DiscordRPC_Description.PasswordChar = '\0';
+            this.DiscordRPC_Description.PromptText = "Description";
+            this.DiscordRPC_Description.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DiscordRPC_Description.SelectedText = "";
+            this.DiscordRPC_Description.SelectionLength = 0;
+            this.DiscordRPC_Description.SelectionStart = 0;
+            this.DiscordRPC_Description.ShortcutsEnabled = true;
+            this.DiscordRPC_Description.Size = new System.Drawing.Size(342, 32);
+            this.DiscordRPC_Description.Style = MetroFramework.MetroColorStyle.Red;
+            this.DiscordRPC_Description.TabIndex = 4;
+            this.DiscordRPC_Description.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.DiscordRPC_Description.UseSelectable = true;
+            this.DiscordRPC_Description.WaterMark = "Description";
+            this.DiscordRPC_Description.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.DiscordRPC_Description.WaterMarkFont = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.DiscordRPC_Description.TextChanged += new System.EventHandler(this.DiscordRPC_Description_TextChanged);
             // 
             // Main
             // 
@@ -450,6 +489,7 @@ namespace SF_Client
         private System.Windows.Forms.PictureBox DiscordRPC_Image;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.Button DiscordRPC_Image_Change;
+        private MetroFramework.Controls.MetroTextBox DiscordRPC_Description;
     }
 }
 

@@ -82,5 +82,17 @@ namespace SF_Client.Properties {
                 this["DiscordRPC_Image"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DiscordRPC_Description {
+            get {
+                return ((string)(this["DiscordRPC_Description"]));
+            }
+            set {
+                this["DiscordRPC_Description"] = value;
+            }
+        }
     }
 }

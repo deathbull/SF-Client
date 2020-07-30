@@ -143,6 +143,7 @@ namespace SF_Client
             Properties.Settings.Default.Username = userNameTextbox.Text;
             Properties.Settings.Default.Password = userPassTextbox.Text;
             Properties.Settings.Default.DiscordRPC_Active = DiscordRPC_Active.Checked;
+            Properties.Settings.Default.DiscordRPC_Description = DiscordRPC_Description.Text;
 
             Properties.Settings.Default.Save();
 
@@ -151,14 +152,12 @@ namespace SF_Client
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
-
             language.SelectedIndex = Properties.Settings.Default.Lanuguage;
             userNameTextbox.Text = Properties.Settings.Default.Username;
             userPassTextbox.Text = Properties.Settings.Default.Password;
             DiscordRPC_Image.Image = Images.ImageList[Properties.Settings.Default.DiscordRPC_Image];
             DiscordRPC_Active.Checked = Properties.Settings.Default.DiscordRPC_Active;
-
+            DiscordRPC_Description.Text = Properties.Settings.Default.DiscordRPC_Description;
         }
 
         void UpdatePresence()
@@ -168,7 +167,7 @@ namespace SF_Client
                 DiscordRpc.EventHandlers handlers = new DiscordRpc.EventHandlers();
                 DiscordRpc.RichPresence presence = new DiscordRpc.RichPresence();
                 DiscordRpc.Initialize("738137354589437972", ref handlers, true, null);
-                presence.details = "Client by Deathbull";
+                presence.details = DiscordRPC_Description.Text;
                 presence.largeImageKey = Properties.Settings.Default.DiscordRPC_Image;
                 presence.largeImageText = "Seafight";
                 DiscordRpc.UpdatePresence(ref presence);
@@ -202,6 +201,11 @@ namespace SF_Client
         }
 
         private void DiscordRPC_Active_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePresence();
+        }
+
+        private void DiscordRPC_Description_TextChanged(object sender, EventArgs e)
         {
             UpdatePresence();
         }
