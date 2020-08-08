@@ -42,13 +42,13 @@ namespace SF_Client
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.DiscordRPC_Description = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.DiscordRPC_Image = new System.Windows.Forms.PictureBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.DiscordRPC_Active = new MetroFramework.Controls.MetroCheckBox();
             this.DiscordRPC_Image_Change = new System.Windows.Forms.Button();
             this.Discord = new System.Windows.Forms.Button();
-            this.DiscordRPC_Description = new MetroFramework.Controls.MetroTextBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -71,10 +71,9 @@ namespace SF_Client
             this.metroTabControl1.Location = new System.Drawing.Point(14, 70);
             this.metroTabControl1.Multiline = true;
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.ShowToolTips = true;
             this.metroTabControl1.Size = new System.Drawing.Size(996, 684);
-            this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,7 +92,7 @@ namespace SF_Client
             this.metroTabPage1.Size = new System.Drawing.Size(988, 641);
             this.metroTabPage1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Game   ";
+            this.metroTabPage1.Text = "Game    ";
             this.metroTabPage1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTabPage1.UseVisualStyleBackColor = true;
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -127,7 +126,7 @@ namespace SF_Client
             this.metroTabPage2.Size = new System.Drawing.Size(988, 641);
             this.metroTabPage2.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Login   ";
+            this.metroTabPage2.Text = "Login    ";
             this.metroTabPage2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
@@ -273,7 +272,7 @@ namespace SF_Client
             this.metroTabPage3.Size = new System.Drawing.Size(988, 641);
             this.metroTabPage3.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "Settings   ";
+            this.metroTabPage3.Text = "Settings    ";
             this.metroTabPage3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
@@ -310,6 +309,43 @@ namespace SF_Client
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // DiscordRPC_Description
+            // 
+            // 
+            // 
+            // 
+            this.DiscordRPC_Description.CustomButton.Image = null;
+            this.DiscordRPC_Description.CustomButton.Location = new System.Drawing.Point(312, 2);
+            this.DiscordRPC_Description.CustomButton.Name = "";
+            this.DiscordRPC_Description.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.DiscordRPC_Description.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.DiscordRPC_Description.CustomButton.TabIndex = 1;
+            this.DiscordRPC_Description.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.DiscordRPC_Description.CustomButton.UseSelectable = true;
+            this.DiscordRPC_Description.CustomButton.Visible = false;
+            this.DiscordRPC_Description.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.DiscordRPC_Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.DiscordRPC_Description.Lines = new string[0];
+            this.DiscordRPC_Description.Location = new System.Drawing.Point(3, 263);
+            this.DiscordRPC_Description.MaxLength = 32767;
+            this.DiscordRPC_Description.Name = "DiscordRPC_Description";
+            this.DiscordRPC_Description.PasswordChar = '\0';
+            this.DiscordRPC_Description.PromptText = "Description";
+            this.DiscordRPC_Description.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.DiscordRPC_Description.SelectedText = "";
+            this.DiscordRPC_Description.SelectionLength = 0;
+            this.DiscordRPC_Description.SelectionStart = 0;
+            this.DiscordRPC_Description.ShortcutsEnabled = true;
+            this.DiscordRPC_Description.Size = new System.Drawing.Size(342, 32);
+            this.DiscordRPC_Description.Style = MetroFramework.MetroColorStyle.Red;
+            this.DiscordRPC_Description.TabIndex = 4;
+            this.DiscordRPC_Description.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.DiscordRPC_Description.UseSelectable = true;
+            this.DiscordRPC_Description.WaterMark = "Description";
+            this.DiscordRPC_Description.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.DiscordRPC_Description.WaterMarkFont = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.DiscordRPC_Description.TextChanged += new System.EventHandler(this.DiscordRPC_Description_TextChanged);
             // 
             // metroPanel2
             // 
@@ -401,43 +437,6 @@ namespace SF_Client
             this.Discord.TabIndex = 2;
             this.Discord.UseVisualStyleBackColor = true;
             this.Discord.Click += new System.EventHandler(this.Discord_Click);
-            // 
-            // DiscordRPC_Description
-            // 
-            // 
-            // 
-            // 
-            this.DiscordRPC_Description.CustomButton.Image = null;
-            this.DiscordRPC_Description.CustomButton.Location = new System.Drawing.Point(312, 2);
-            this.DiscordRPC_Description.CustomButton.Name = "";
-            this.DiscordRPC_Description.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.DiscordRPC_Description.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.DiscordRPC_Description.CustomButton.TabIndex = 1;
-            this.DiscordRPC_Description.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.DiscordRPC_Description.CustomButton.UseSelectable = true;
-            this.DiscordRPC_Description.CustomButton.Visible = false;
-            this.DiscordRPC_Description.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.DiscordRPC_Description.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.DiscordRPC_Description.Lines = new string[0];
-            this.DiscordRPC_Description.Location = new System.Drawing.Point(3, 263);
-            this.DiscordRPC_Description.MaxLength = 32767;
-            this.DiscordRPC_Description.Name = "DiscordRPC_Description";
-            this.DiscordRPC_Description.PasswordChar = '\0';
-            this.DiscordRPC_Description.PromptText = "Description";
-            this.DiscordRPC_Description.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.DiscordRPC_Description.SelectedText = "";
-            this.DiscordRPC_Description.SelectionLength = 0;
-            this.DiscordRPC_Description.SelectionStart = 0;
-            this.DiscordRPC_Description.ShortcutsEnabled = true;
-            this.DiscordRPC_Description.Size = new System.Drawing.Size(342, 32);
-            this.DiscordRPC_Description.Style = MetroFramework.MetroColorStyle.Red;
-            this.DiscordRPC_Description.TabIndex = 4;
-            this.DiscordRPC_Description.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.DiscordRPC_Description.UseSelectable = true;
-            this.DiscordRPC_Description.WaterMark = "Description";
-            this.DiscordRPC_Description.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.DiscordRPC_Description.WaterMarkFont = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.DiscordRPC_Description.TextChanged += new System.EventHandler(this.DiscordRPC_Description_TextChanged);
             // 
             // Main
             // 

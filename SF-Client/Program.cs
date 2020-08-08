@@ -13,8 +13,13 @@ namespace SF_Client
             RegistryKey reg = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\", true);
             if (reg == null)
                 reg = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\");
-            if (reg.GetValue("SF-Client.exe") == null || (int)reg.GetValue("SF-Client.exe") != 0x00002ee1)
-                reg.SetValue("SF-Client.exe", 0x00002ee1);
+            if (reg.GetValue("SF-Client.exe") == null || (int)reg.GetValue("SF-Client.exe") != 0x00002ee1 || (int)reg.GetValue("SF-Client.exe") != 0x00002711)
+            {
+                if (Environment.OSVersion.Version.Major == 10)
+                    reg.SetValue("SF-Client.exe", 0x00002ee1);
+                else
+                    reg.SetValue("SF-Client.exe", 0x00002711);
+            }
 
             Tools.SetProcessWorkingSize();
 

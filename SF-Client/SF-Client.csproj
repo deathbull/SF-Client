@@ -42,7 +42,7 @@
     <StartupObject>SF_Client.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>%24this.Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Deathbull.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -168,8 +168,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="%24this.Icon.ico" />
     <None Include="Resources\discord.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Deathbull.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

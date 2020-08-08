@@ -1,10 +1,9 @@
-﻿using MetroFramework.Forms;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace SF_Client
 {
-    public partial class FlashPlayer : MetroForm
+    public partial class FlashPlayer : Form
     {
         public FlashPlayer()
         {
@@ -68,6 +67,28 @@ namespace SF_Client
                 {
                     RestartFlashPlayer();
                 }
+            }
+            if (e.KeyData == Keys.F11)
+            {
+                if (this.FormBorderStyle == FormBorderStyle.None)
+                    GoFullscreen(false);
+                else
+                    GoFullscreen(true);
+            }
+        }
+
+        private void GoFullscreen(bool fullscreen)
+        {
+            if (fullscreen)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.Bounds = Screen.PrimaryScreen.Bounds;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             }
         }
     }

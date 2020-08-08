@@ -37,10 +37,10 @@
             // 
             this.axShockwaveFlash1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axShockwaveFlash1.Enabled = true;
-            this.axShockwaveFlash1.Location = new System.Drawing.Point(11, 30);
+            this.axShockwaveFlash1.Location = new System.Drawing.Point(0, 0);
             this.axShockwaveFlash1.Name = "axShockwaveFlash1";
             this.axShockwaveFlash1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
-            this.axShockwaveFlash1.Size = new System.Drawing.Size(1002, 727);
+            this.axShockwaveFlash1.Size = new System.Drawing.Size(1024, 768);
             this.axShockwaveFlash1.TabIndex = 3;
             this.axShockwaveFlash1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.axShockwaveFlash1_PreviewKeyDown);
             // 
@@ -50,14 +50,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.axShockwaveFlash1);
-            this.DisplayHeader = false;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FlashPlayer";
-            this.Padding = new System.Windows.Forms.Padding(11, 30, 11, 11);
-            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FlashPlayer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).EndInit();
