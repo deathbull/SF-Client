@@ -117,6 +117,7 @@ namespace SF_Client
                         if (item.Name == "FlashVars")
                         {
                             var = item.GetAttribute("value").Replace(item.GetAttribute("value").Split(new string[] { "isFastReg=1&" }, StringSplitOptions.None)[1].Split(new string[] { "&quality" }, StringSplitOptions.None)[0], "lang=" + language.GetItemText(language.SelectedItem).ToLower());
+                            var = var.Replace(var.Split(new string[] { "platform=" }, StringSplitOptions.None)[1].Split(new string[] { "&" }, StringSplitOptions.None)[0], "PC_CLIENT");
                             break;
                         }
                     }
