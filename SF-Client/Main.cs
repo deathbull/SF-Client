@@ -1,17 +1,9 @@
 ﻿using MetroFramework.Forms;
 using DiscordRpcNet;
-using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.Drawing;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net;
-using System.IO;
 using SF_Client.DiscordRPC;
-using SF_Client.DiscordRPC.APIDatas;
-using System.Collections.Generic;
 
 namespace SF_Client
 {
@@ -20,35 +12,12 @@ namespace SF_Client
         public Main()
         {
             InitializeComponent();
-            LoadRPCImages();
+            new SplashScreen().ShowDialog();
             language.SelectedIndex = 0;
             Main.CheckForIllegalCrossThreadCalls = false;
         }
 
         private string Username { get; set; }
-
-        private void LoadRPCImages()
-        {
-            using (HttpClient _ = new HttpClient())
-            {
-                _.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage message = _.GetAsync("https://discord.com/api/v6/oauth2/applications/738137354589437972/assets").Result;
-                message.EnsureSuccessStatusCode();
-                string ResponseBody = message.Content.ReadAsStringAsync().Result;
-
-                Root DeserializedData = JsonConvert.DeserializeObject<Root>(ResponseBody.Replace("[", "{ Main : [").Replace("]", "]}"));
-
-                for (int i = 0; i < DeserializedData.Main.Count; i++)
-                {
-                    using (WebClient webClient = new WebClient())
-                    {
-                        byte[] data = webClient.DownloadData($"https://cdn.discordapp.com/app-assets/738137354589437972/{DeserializedData.Main[i].id}.png");
-                        MemoryStream ms = new MemoryStream(data);
-                        Images.ImageList.Add(DeserializedData.Main[i].name, (Bitmap)Image.FromStream(ms));
-                    }
-                }
-            }
-        }
 
         private void Discord_Click(object sender, EventArgs e)
         {
@@ -149,6 +118,8 @@ namespace SF_Client
             Properties.Settings.Default.Save();
 
             DiscordRpc.Shutdown();
+
+            Application.Exit();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -171,6 +142,7 @@ namespace SF_Client
                 presence.details = DiscordRPC_Description.Text;
                 presence.largeImageKey = Properties.Settings.Default.DiscordRPC_Image;
                 presence.largeImageText = "Seafight";
+                presence.startTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 DiscordRpc.UpdatePresence(ref presence);
             }
             else

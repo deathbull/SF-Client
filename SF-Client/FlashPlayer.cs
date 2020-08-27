@@ -27,8 +27,8 @@ namespace SF_Client
 
         private void RestartFlashPlayer()
         {
-            //try
-            //{
+            try
+            {
                 this.Controls.Remove(axShockwaveFlash1);
                 axShockwaveFlash1.Dispose();
                 System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlashPlayer));
@@ -40,8 +40,7 @@ namespace SF_Client
                 this.axShockwaveFlash1.Location = new System.Drawing.Point(0, 0);
                 this.axShockwaveFlash1.Margin = new Padding(10);
                 this.axShockwaveFlash1.Name = "axShockwaveFlash1";
-                //this.axShockwaveFlash1.OcxState = ((AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
-                this.axShockwaveFlash1.OcxState = new AxHost.State(new MemoryStream(1024 * 1024), 2, true, "");
+                this.axShockwaveFlash1.OcxState = ((AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
                 this.axShockwaveFlash1.CtlScale = "ShowAll";
                 this.axShockwaveFlash1.DeviceFont = true;
                 this.axShockwaveFlash1.WMode = "cpu";
@@ -57,18 +56,18 @@ namespace SF_Client
                 this.axShockwaveFlash1.FlashVars = FlashVariables;
                 this.axShockwaveFlash1.LoadMovie(0, SwfClient);
                 this.axShockwaveFlash1.GotoFrame(0);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void axShockwaveFlash1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyData == Keys.F5)
             {
-                if (MessageBox.Show("Do you want to restart flash player ?","Confirmation",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Do you want to restart flash player ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     RestartFlashPlayer();
                 }

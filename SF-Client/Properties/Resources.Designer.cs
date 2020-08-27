@@ -63,6 +63,16 @@ namespace SF_Client.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Deathbull_Logo1 {
+            get {
+                object obj = ResourceManager.GetObject("Deathbull_Logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap discord {
             get {
                 object obj = ResourceManager.GetObject("discord", resourceCulture);
