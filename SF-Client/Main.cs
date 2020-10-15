@@ -31,7 +31,7 @@ namespace SF_Client
             else
             {
                 metroTabControl1.SelectedIndex = 0;
-                webBrowser1.Navigate("http://www.seafight.com/");
+                webBrowser1.Navigate("https://www.seafight.com/");
                 return;
             }
         }
