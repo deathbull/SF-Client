@@ -63,5 +63,13 @@ namespace SF_Client
                 }
             }
         }
+
+        public enum Quality : int
+        {
+            low = 0,
+            medium = 1,
+            high = 2,
+            best = 3
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -7,8 +8,21 @@ namespace SF_Client
     static class Program
     {
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                if (args[0] == "cc")
+                {
+                    string dir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Deathbull\SF-Client\CefCache\";
+                    if (Directory.Exists(dir))
+                    {
+                        Directory.Delete(dir, true);
+                        MessageBox.Show("Cache cleared.", "Done", MessageBoxButtons.OK);
+                    }
+                }
+            }
+
             //Confirmation for Webbrowser to use javascript
             RegistryKey reg = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION\", true);
             if (reg == null)
@@ -26,14 +40,7 @@ namespace SF_Client
             CosturaUtility.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //try
-            //{
-                Application.Run(new Main());
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            Application.Run(new Main());
         }
     }
 }

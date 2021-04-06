@@ -4,6 +4,9 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using SF_Client.DiscordRPC;
+using CefSharp;
+using CefSharp.WinForms;
+using System.IO;
 
 namespace SF_Client
 {
@@ -12,12 +15,70 @@ namespace SF_Client
         public Main()
         {
             InitializeComponent();
+            InitializeChromium();
             new SplashScreen().ShowDialog();
             language.SelectedIndex = 0;
             Main.CheckForIllegalCrossThreadCalls = false;
         }
 
+        private void InitializeChromium()
+        {
+            CefSettings settings = new CefSettings();
+            settings.UserAgent = "BigpointClient/1.6.2";
+            settings.IgnoreCertificateErrors = true;
+            settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Deathbull\SF-Client\CefCache\";
+            settings.CefCommandLineArgs["enable-npapi"] = "1";
+            settings.CefCommandLineArgs.Add("ppapi-flash-path", "pepflashplayer.dll");
+            settings.CefCommandLineArgs.Add("ppapi-flash-version", "30.0.0.306");
+            settings.CefCommandLineArgs.Add("disable-gpu", "1");
+            settings.CefCommandLineArgs.Add("disable-gpu-compositing", "1");
+            settings.CefCommandLineArgs.Add("disable-gpu-vsync", "1");
+            settings.CefCommandLineArgs.Add("disable-pinch", "1");
+            settings.CefCommandLineArgs.Add("ppapi-antialiased-text-enabled", "0");
+            settings.Locale = language.GetItemText(language.SelectedItem).ToLower();
+            settings.AcceptLanguageList = language.GetItemText(language.SelectedItem).ToLower() + "-" + language.GetItemText(language.SelectedItem).ToUpper();
+
+            Cef.EnableHighDPISupport();
+            Cef.Initialize(settings);
+            Cef.GetGlobalCookieManager().DeleteCookiesAsync("", "");
+
+            browser = new ChromiumWebBrowser("");
+            browser.Dock = DockStyle.Fill;
+            metroTabPage1.Controls.Add(browser);
+            browser.BrowserSettings.Javascript = CefState.Enabled;
+            browser.BrowserSettings.Plugins = CefState.Enabled;
+            browser.BringToFront();
+            browser.FrameLoadEnd += Browser_FrameLoadEnd;
+        }
+
+        private void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+            if (e.Url == "https://lp.seafight.com/")
+            {
+                browser.GetMainFrame().EvaluateScriptAsync("document.getElementById('bgcdw_login_form_username').setAttribute('value', '" + userNameTextbox.Text + "');" +
+                                                           "document.getElementById('bgcdw_login_form_password').setAttribute('value', '" + userPassTextbox.Text + "');" +
+                                                           "document.getElementsByName('bgcdw_login_form')[0].submit();");
+            }
+            if (e.Url.Contains("loginDone=true"))
+            {
+                browser.Load(e.Url.Replace("Start&loginDone=true", "Map"));
+            }
+            if (e.Url.Contains("internalMap"))
+            {
+                e.Frame.EvaluateScriptAsync("document.getElementById('seafightClientContainer').setAttribute('style', 'display: block');" +
+                                            "try{" +
+                                            "document.getElementsByName('quality')[0].setAttribute('value', '" + Enum.GetName(typeof(Tools.Quality), quality.Value) + "');" +
+                                            "document.getElementsByName('wmode')[0].setAttribute('value', 'window');" +
+                                            "}" +
+                                            "catch (e){" +
+                                            "loadFunc();" +
+                                            "})");
+            }
+        }
+
         private string Username { get; set; }
+        private ChromiumWebBrowser browser { get; set; }
+
 
         private void Discord_Click(object sender, EventArgs e)
         {
@@ -31,7 +92,17 @@ namespace SF_Client
             else
             {
                 metroTabControl1.SelectedIndex = 0;
-                webBrowser1.Navigate("http://www.seafight.com/");
+                if (browser_option.Value == 0)
+                {
+                    webBrowser1.Navigate(new Uri("https://lp.seafight.com/"), null, null, "User-Agent: BigpointClient/1.6.2");
+                    webBrowser1.BringToFront();
+                }
+                else
+                {
+                    
+                    browser.Load("https://lp.seafight.com/");
+                    browser.BringToFront();
+                }
                 return;
             }
         }
@@ -73,7 +144,7 @@ namespace SF_Client
             }
             else if (e.Url.AbsoluteUri.Contains("&loginDone=true"))
             {
-                webBrowser1.Navigate(webBrowser1.Url.AbsoluteUri.Replace("/index.es?action=internalStart&loginDone=true", "/index.es?action=internalMap"));
+                webBrowser1.Navigate(new Uri(webBrowser1.Url.AbsoluteUri.Replace("/index.es?action=internalStart&loginDone=true", "/index.es?action=internalMap")), null, null, "User-Agent: BigpointClient/1.2.0");
             }
             else if (webBrowser1.Url.ToString().Contains("/index.es?action=internalMap"))
             {
@@ -114,10 +185,13 @@ namespace SF_Client
             Properties.Settings.Default.Password = userPassTextbox.Text;
             Properties.Settings.Default.DiscordRPC_Active = DiscordRPC_Active.Checked;
             Properties.Settings.Default.DiscordRPC_Description = DiscordRPC_Description.Text;
+            Properties.Settings.Default.browserOption = browser_option.Value;
 
             Properties.Settings.Default.Save();
 
             DiscordRpc.Shutdown();
+            Cef.Shutdown();
+
 
             Application.Exit();
         }
@@ -130,6 +204,7 @@ namespace SF_Client
             DiscordRPC_Image.Image = Images.ImageList[Properties.Settings.Default.DiscordRPC_Image];
             DiscordRPC_Active.Checked = Properties.Settings.Default.DiscordRPC_Active;
             DiscordRPC_Description.Text = Properties.Settings.Default.DiscordRPC_Description;
+            browser_option.Value = Properties.Settings.Default.browserOption;
         }
 
         void UpdatePresence()
@@ -181,6 +256,15 @@ namespace SF_Client
         private void DiscordRPC_Description_TextChanged(object sender, EventArgs e)
         {
             UpdatePresence();
+        }
+
+        private void clearCache_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to clear the cache ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Process.Start(Application.ExecutablePath, "cc");
+                Application.Exit();
+            }
         }
     }
 }

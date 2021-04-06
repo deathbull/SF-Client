@@ -48,7 +48,19 @@ namespace SF_Client
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.DiscordRPC_Active = new MetroFramework.Controls.MetroCheckBox();
             this.DiscordRPC_Image_Change = new System.Windows.Forms.Button();
+            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.quality = new MetroFramework.Controls.MetroTrackBar();
+            this.browser_option = new MetroFramework.Controls.MetroTrackBar();
+            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.Discord = new System.Windows.Forms.Button();
+            this.clearCache = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -56,6 +68,7 @@ namespace SF_Client
             this.flowLayoutPanel1.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiscordRPC_Image)).BeginInit();
+            this.metroPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -68,12 +81,12 @@ namespace SF_Client
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.metroTabControl1.HotTrack = true;
             this.metroTabControl1.ItemSize = new System.Drawing.Size(96, 35);
-            this.metroTabControl1.Location = new System.Drawing.Point(14, 70);
+            this.metroTabControl1.Location = new System.Drawing.Point(14, 30);
             this.metroTabControl1.Multiline = true;
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.ShowToolTips = true;
-            this.metroTabControl1.Size = new System.Drawing.Size(996, 684);
+            this.metroTabControl1.Size = new System.Drawing.Size(996, 724);
             this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,7 +102,7 @@ namespace SF_Client
             this.metroTabPage1.HorizontalScrollbarSize = 0;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 39);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(988, 641);
+            this.metroTabPage1.Size = new System.Drawing.Size(988, 681);
             this.metroTabPage1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Game    ";
@@ -106,7 +119,7 @@ namespace SF_Client
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(988, 641);
+            this.webBrowser1.Size = new System.Drawing.Size(988, 681);
             this.webBrowser1.TabIndex = 3;
             this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
@@ -114,7 +127,9 @@ namespace SF_Client
             // metroTabPage2
             // 
             this.metroTabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.metroTabPage2.Controls.Add(this.Discord);
             this.metroTabPage2.Controls.Add(this.language);
+            this.metroTabPage2.Controls.Add(this.clearCache);
             this.metroTabPage2.Controls.Add(this.Login);
             this.metroTabPage2.Controls.Add(this.userNameTextbox);
             this.metroTabPage2.Controls.Add(this.userPassTextbox);
@@ -123,7 +138,7 @@ namespace SF_Client
             this.metroTabPage2.HorizontalScrollbarSize = 0;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 39);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(988, 641);
+            this.metroTabPage2.Size = new System.Drawing.Size(988, 681);
             this.metroTabPage2.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Login    ";
@@ -163,7 +178,7 @@ namespace SF_Client
             "SV",
             "TR",
             "US"});
-            this.language.Location = new System.Drawing.Point(344, 361);
+            this.language.Location = new System.Drawing.Point(344, 381);
             this.language.MaxDropDownItems = 20;
             this.language.MaximumSize = new System.Drawing.Size(350, 0);
             this.language.Name = "language";
@@ -177,7 +192,7 @@ namespace SF_Client
             // Login
             // 
             this.Login.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Login.Location = new System.Drawing.Point(344, 318);
+            this.Login.Location = new System.Drawing.Point(344, 338);
             this.Login.MaximumSize = new System.Drawing.Size(350, 50);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(300, 37);
@@ -206,7 +221,7 @@ namespace SF_Client
             this.userNameTextbox.CustomButton.Visible = false;
             this.userNameTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.userNameTextbox.Lines = new string[0];
-            this.userNameTextbox.Location = new System.Drawing.Point(344, 240);
+            this.userNameTextbox.Location = new System.Drawing.Point(344, 260);
             this.userNameTextbox.MaximumSize = new System.Drawing.Size(350, 50);
             this.userNameTextbox.MaxLength = 32767;
             this.userNameTextbox.Name = "userNameTextbox";
@@ -242,7 +257,7 @@ namespace SF_Client
             this.userPassTextbox.CustomButton.Visible = false;
             this.userPassTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.userPassTextbox.Lines = new string[0];
-            this.userPassTextbox.Location = new System.Drawing.Point(344, 279);
+            this.userPassTextbox.Location = new System.Drawing.Point(344, 299);
             this.userPassTextbox.MaximumSize = new System.Drawing.Size(350, 50);
             this.userPassTextbox.MaxLength = 32767;
             this.userPassTextbox.Name = "userPassTextbox";
@@ -269,7 +284,7 @@ namespace SF_Client
             this.metroTabPage3.HorizontalScrollbarSize = 0;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 39);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(988, 641);
+            this.metroTabPage3.Size = new System.Drawing.Size(988, 681);
             this.metroTabPage3.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Settings    ";
@@ -282,10 +297,11 @@ namespace SF_Client
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.flowLayoutPanel1.Controls.Add(this.metroPanel1);
+            this.flowLayoutPanel1.Controls.Add(this.metroPanel4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 641);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 681);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // metroPanel1
@@ -424,34 +440,204 @@ namespace SF_Client
             this.DiscordRPC_Image_Change.Click += new System.EventHandler(this.DiscordRPC_Image_Change_Click);
             this.DiscordRPC_Image_Change.MouseLeave += new System.EventHandler(this.DiscordRPC_Image_Change_MouseLeave);
             // 
+            // metroPanel4
+            // 
+            this.metroPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel4.Controls.Add(this.metroLabel8);
+            this.metroPanel4.Controls.Add(this.metroLabel7);
+            this.metroPanel4.Controls.Add(this.metroLabel6);
+            this.metroPanel4.Controls.Add(this.metroLabel4);
+            this.metroPanel4.Controls.Add(this.metroLabel5);
+            this.metroPanel4.Controls.Add(this.metroLabel3);
+            this.metroPanel4.Controls.Add(this.quality);
+            this.metroPanel4.Controls.Add(this.browser_option);
+            this.metroPanel4.Controls.Add(this.metroPanel5);
+            this.metroPanel4.Controls.Add(this.metroLabel2);
+            this.metroPanel4.HorizontalScrollbarBarColor = true;
+            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.HorizontalScrollbarSize = 10;
+            this.metroPanel4.Location = new System.Drawing.Point(359, 3);
+            this.metroPanel4.Name = "metroPanel4";
+            this.metroPanel4.Size = new System.Drawing.Size(350, 300);
+            this.metroPanel4.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroPanel4.TabIndex = 4;
+            this.metroPanel4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel4.VerticalScrollbarBarColor = true;
+            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel8
+            // 
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel8.Location = new System.Drawing.Point(204, 160);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(50, 25);
+            this.metroLabel8.TabIndex = 5;
+            this.metroLabel8.Text = "High";
+            this.metroLabel8.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel7.Location = new System.Drawing.Point(80, 160);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(78, 25);
+            this.metroLabel7.TabIndex = 5;
+            this.metroLabel7.Text = "Medium";
+            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.Location = new System.Drawing.Point(3, 160);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(44, 25);
+            this.metroLabel6.TabIndex = 5;
+            this.metroLabel6.Text = "Low";
+            this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.Location = new System.Drawing.Point(3, 92);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(71, 25);
+            this.metroLabel4.TabIndex = 5;
+            this.metroLabel4.Text = "ActiveX";
+            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel5.Location = new System.Drawing.Point(296, 160);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(49, 25);
+            this.metroLabel5.TabIndex = 5;
+            this.metroLabel5.Text = "Ultra";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel3.Location = new System.Drawing.Point(287, 92);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(58, 25);
+            this.metroLabel3.TabIndex = 5;
+            this.metroLabel3.Text = "PPAPI";
+            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // quality
+            // 
+            this.quality.BackColor = System.Drawing.Color.Transparent;
+            this.quality.LargeChange = 1;
+            this.quality.Location = new System.Drawing.Point(3, 120);
+            this.quality.Maximum = 3;
+            this.quality.MouseWheelBarPartitions = 1;
+            this.quality.Name = "quality";
+            this.quality.Size = new System.Drawing.Size(342, 37);
+            this.quality.Style = MetroFramework.MetroColorStyle.Black;
+            this.quality.TabIndex = 4;
+            this.quality.Text = "metroTrackBar1";
+            this.quality.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.quality.Value = 0;
+            // 
+            // browser_option
+            // 
+            this.browser_option.BackColor = System.Drawing.Color.Transparent;
+            this.browser_option.LargeChange = 1;
+            this.browser_option.Location = new System.Drawing.Point(3, 52);
+            this.browser_option.Maximum = 1;
+            this.browser_option.Name = "browser_option";
+            this.browser_option.Size = new System.Drawing.Size(342, 37);
+            this.browser_option.TabIndex = 4;
+            this.browser_option.Text = "metroTrackBar1";
+            this.browser_option.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.browser_option.Value = 0;
+            // 
+            // metroPanel5
+            // 
+            this.metroPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.metroPanel5.HorizontalScrollbarBarColor = true;
+            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.HorizontalScrollbarSize = 10;
+            this.metroPanel5.Location = new System.Drawing.Point(0, 45);
+            this.metroPanel5.Name = "metroPanel5";
+            this.metroPanel5.Size = new System.Drawing.Size(350, 1);
+            this.metroPanel5.TabIndex = 3;
+            this.metroPanel5.UseCustomBackColor = true;
+            this.metroPanel5.VerticalScrollbarBarColor = true;
+            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel2.Location = new System.Drawing.Point(0, -1);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(349, 47);
+            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLabel2.TabIndex = 2;
+            this.metroLabel2.Text = "Browser Option";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // Discord
             // 
+            this.Discord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Discord.AutoEllipsis = true;
             this.Discord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.Discord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.Discord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Discord.Image = global::SF_Client.Properties.Resources.discord;
-            this.Discord.Location = new System.Drawing.Point(14, 12);
+            this.Discord.Location = new System.Drawing.Point(860, 628);
             this.Discord.Name = "Discord";
-            this.Discord.Size = new System.Drawing.Size(96, 52);
+            this.Discord.Size = new System.Drawing.Size(125, 50);
             this.Discord.TabIndex = 2;
-            this.Discord.UseVisualStyleBackColor = true;
+            this.Discord.UseVisualStyleBackColor = false;
             this.Discord.Click += new System.EventHandler(this.Discord_Click);
+            // 
+            // clearCache
+            // 
+            this.clearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.clearCache.Location = new System.Drawing.Point(3, 628);
+            this.clearCache.MaximumSize = new System.Drawing.Size(350, 50);
+            this.clearCache.Name = "clearCache";
+            this.clearCache.Size = new System.Drawing.Size(125, 50);
+            this.clearCache.Style = MetroFramework.MetroColorStyle.Red;
+            this.clearCache.TabIndex = 10;
+            this.clearCache.Text = "Clear Cache";
+            this.clearCache.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.clearCache.UseSelectable = true;
+            this.clearCache.Click += new System.EventHandler(this.clearCache_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.Discord);
             this.Controls.Add(this.metroTabControl1);
+            this.DisplayHeader = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.Padding = new System.Windows.Forms.Padding(14, 70, 14, 14);
+            this.Padding = new System.Windows.Forms.Padding(14, 30, 14, 14);
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Style = MetroFramework.MetroColorStyle.Red;
-            this.Text = "SF-Client";
+            this.Text = "SF-Client by Deathbull";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -465,6 +651,8 @@ namespace SF_Client
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DiscordRPC_Image)).EndInit();
+            this.metroPanel4.ResumeLayout(false);
+            this.metroPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -489,6 +677,18 @@ namespace SF_Client
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.Button DiscordRPC_Image_Change;
         private MetroFramework.Controls.MetroTextBox DiscordRPC_Description;
+        private MetroFramework.Controls.MetroPanel metroPanel4;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroTrackBar quality;
+        private MetroFramework.Controls.MetroTrackBar browser_option;
+        private MetroFramework.Controls.MetroPanel metroPanel5;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroButton clearCache;
     }
 }
 

@@ -41,10 +41,6 @@ namespace SF_Client
                 this.axShockwaveFlash1.Margin = new Padding(10);
                 this.axShockwaveFlash1.Name = "axShockwaveFlash1";
                 this.axShockwaveFlash1.OcxState = ((AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
-                this.axShockwaveFlash1.CtlScale = "ShowAll";
-                this.axShockwaveFlash1.DeviceFont = true;
-                this.axShockwaveFlash1.WMode = "cpu";
-                this.axShockwaveFlash1.Quality = 0;
                 this.axShockwaveFlash1.Padding = new Padding(10);
                 this.axShockwaveFlash1.Size = new System.Drawing.Size(1248, 473);
                 this.axShockwaveFlash1.TabIndex = 2;
@@ -53,6 +49,10 @@ namespace SF_Client
                 this.axShockwaveFlash1.PreviewKeyDown += axShockwaveFlash1_PreviewKeyDown;
                 this.Controls.Add(this.axShockwaveFlash1);
                 axShockwaveFlash1.Refresh();
+                this.axShockwaveFlash1.CtlScale = "ShowAll";
+                this.axShockwaveFlash1.DeviceFont = true;
+                this.axShockwaveFlash1.WMode = "cpu";
+                this.axShockwaveFlash1.Quality = 0;
                 this.axShockwaveFlash1.FlashVars = FlashVariables;
                 this.axShockwaveFlash1.LoadMovie(0, SwfClient);
                 this.axShockwaveFlash1.GotoFrame(0);
